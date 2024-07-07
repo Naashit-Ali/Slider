@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import OnBoarding from '../components/OnBoarding';
 
 const Home = () => {
+  
   return (
     <>
     

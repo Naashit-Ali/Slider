@@ -14,6 +14,14 @@ const OnBoarding = () => {
         setCurrentIndex(viewableItems[0].index);
     }).current;
 
+    const scrollTo = () => {
+        if (currentIndex < Slides.length - 1) {
+            slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+        } else {
+            console.log('Last item');
+        }
+    };
+
     const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
     return (
         <View style={styles.container}>
@@ -34,7 +42,7 @@ const OnBoarding = () => {
 
             </View>
                 <Paginator data={Slides} scrollX={scrollX}/>
-                <NextButton/>
+                <NextButton  scrollTo={scrollTo} percentage={(currentIndex + 1) * (100 / Slides.length)}/>
         </View>
     );
 }
